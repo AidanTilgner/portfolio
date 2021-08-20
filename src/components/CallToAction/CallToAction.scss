@@ -1,0 +1,41 @@
+@use '../../styles/partials/mixins' as *;
+@use '../../styles/partials/variables' as *;
+@use '../../styles/partials/typography' as *;
+
+.cta{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+
+    &__text{
+        font-size: $mobile-p;
+        font-weight: 500;
+        margin: 0;
+        margin-bottom: 6px;
+
+        @include tablet{
+            font-size: $p;
+        }
+    }
+
+    &__arrow{
+        position: relative;
+
+        @keyframes cta-arrow-animation {
+            0%{
+                right: 0px;
+            }
+            50%{
+                right: 14px;
+            }
+            100%{
+                right: 0px;
+            }
+        }
+        animation-name: cta-arrow-animation;
+        animation-duration: 1.5s;
+        animation-iteration-count: infinite;
+        animation-timing-function: ease-in-out;
+        animation-fill-mode: both;
+    }
+}

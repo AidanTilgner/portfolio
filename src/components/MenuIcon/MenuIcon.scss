@@ -1,0 +1,78 @@
+@use '../../styles/partials/mixins' as *;
+@use '../../styles/partials/variables' as *;
+@use '../../styles/partials/typography' as *;
+
+.menu-icon{
+    position: fixed;
+    right: 5px;
+    top: 40vh;
+
+    &:hover{
+        color: #f2f2f2;
+    }
+
+    @include tablet{
+        position: relative;
+        top: 0;
+        right: -9px;
+        margin-left: 36px;
+    }
+
+    &__prompt-circle{
+        position: absolute;
+        top: 9px;
+        left: 9px;
+        border-radius: 99px;
+        height: 62px;
+        width: 62px;
+
+        @keyframes prompt-circle-animation {
+            0%{
+                border: none;
+            }
+            5%{
+                border: 1px solid $ten;
+            }
+            10%{
+                border: 3px solid $ten;
+                top: 9px;
+                left: 9px;
+                height: 62px;
+                width: 62px;
+            }
+            20%{
+                border: 1px solid rgba($color: $ten, $alpha: .75);
+                top: 5.5px;
+                left: 5.5px;
+                height: 69px;
+                width: 69px;
+            }
+            30%{
+                border: 1px solid rgba($color: $ten, $alpha: .25);
+                top: 5.5px;
+                left: 5.5px;
+                height: 69px;
+                width: 69px;
+            }
+            60%{
+                border: 1px solid rgba($color: $ten, $alpha: .01);
+                top: 9px;
+                left: 9px;
+                height: 62px;
+                width: 62px;
+            }
+            100%{
+                border: 1px solid rgba($color: $ten, $alpha: .01);
+                top: 9px;
+                left: 9px;
+                height: 62px;
+                width: 62px;
+            }
+        }
+        animation-name: prompt-circle-animation;
+        animation-duration: 3s;
+        animation-iteration-count: infinite;
+        animation-fill-mode: forwards;
+        animation-timing-function: ease-out;
+    }
+}

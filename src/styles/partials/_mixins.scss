@@ -1,0 +1,28 @@
+//viewports
+@mixin tablet {
+    @media (min-width: 768px) {
+        @content;
+    }
+}
+
+@mixin desktop {
+    @media (min-width: 1280px) {
+        @content;
+    }
+}
+
+//default padding
+@mixin default-padding {
+    padding-inline-start: 16px;
+    padding-inline-end: 16px;
+
+    @include tablet{
+        padding-inline-start: 36px;
+        padding-inline-end: 36px;
+    }
+
+    @include desktop{
+        padding-inline-start: 180px;
+        padding-inline-end: 180px;
+    }
+}

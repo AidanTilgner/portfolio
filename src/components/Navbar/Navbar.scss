@@ -1,0 +1,34 @@
+@use '../../styles/partials/mixins' as *;
+@use '../../styles/partials/variables' as *;
+@use '../../styles/partials/typography' as *;
+
+.navbar{
+    @include default-padding;
+    height: 80px;
+    box-shadow: 0.2px 0.2px 10px rgba(0, 0, 0, 0.25);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    @include tablet{
+        height: 100px;
+    }
+
+    &__title{
+        margin: 0;
+        font-size: $mobile-h2;
+    }
+
+    &__options{
+        display: flex;
+        align-items: center;
+    }
+
+    &__cta{
+        display: none;
+
+        @include desktop{
+            display: flex;
+        }
+    }
+}
