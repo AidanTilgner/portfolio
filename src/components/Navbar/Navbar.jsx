@@ -2,7 +2,7 @@
 import React from 'react'
 
 //components
-import MenuIcon from '../MenuIcon/MenuIcon'
+import Menu from '../MenuIcon/MenuIcon'
 import CallToAction from '../CallToAction/CallToAction'
 
 //files
@@ -13,8 +13,10 @@ function Navbar() {
         <div className="navbar">
             <h2 className="navbar__title">Aidan Tilgner</h2>
             <div className="navbar__options">
-                <span className="navbar__cta"><CallToAction text="book a free call"/></span>
-                <MenuIcon/>
+                <span className="navbar__cta">
+                    <CallToAction text="book a free call" link="https://calendly.com/vvibrant/15min"/>
+                </span>
+                <Menu/>
             </div>
         </div>
     )

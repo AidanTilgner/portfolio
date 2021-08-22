@@ -6,12 +6,15 @@
     display: flex;
     flex-direction: column;
     align-items: flex-end;
+    cursor: pointer;
+    text-decoration: none;
 
     &__text{
         font-size: $mobile-p;
         font-weight: 500;
         margin: 0;
         margin-bottom: 6px;
+        color: $thirty;
 
         @include tablet{
             font-size: $p;

@@ -1,79 +1,88 @@
 //modules
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 //components
+import MenuIcon from '../../assets/Icons/MenuIcon.svg'
+import CloseIcon from '../../assets/Icons/CloseIcon.svg'
+import CallToAction from "../CallToAction/CallToAction";
+import LinkedIn from '../../assets/Icons/LinkedInIcon.svg'
+import Github from '../../assets/Icons/GithubIcon.svg'
+import Pinterest from '../../assets/Icons/PinterestIcon.svg'
+import Youtube from '../../assets/Icons/YouTubeIcon.svg'
 
 //files
 import "./MenuIcon.scss";
 
-function MenuIcon() {
+function Menu() {
+    let [prompt, setPrompt] = useState(true);
+    const [ShowMenu, setShowMenu] = useState(false);
 
-    let [prompt, setPrompt] = useState(true)
+    useEffect(() => {
+        if (!prompt) {
+        document.getElementById(
+            "icon-prompt-circle"
+        ).style.animationIterationCount = "1";
+        }
+    }, [prompt]);
+
+    useEffect(() => {
+        
+    }, [ShowMenu])
 
     return (
-        <div className="menu-icon">
-            <svg
-            width="81"
-            height="81"
-            viewBox="0 0 81 81"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
+        <div
+        className="menu"
+        onClick={(e) => {
+            e.preventDefault();
+            console.log("clicked");
+            setPrompt(false);
+        }}
         >
-            <g filter="url(#filter0_d)">
-            <circle cx="40" cy="40" r="30" fill="white" />
-            <rect x="22" y="28" width="35" height="4" rx="2" fill="black" />
-            <path
-                d="M32 50C32 48.8954 32.8954 48 34 48H55C56.1046 48 57 48.8954 57 50C57 51.1046 56.1046 52 55 52H34C32.8954 52 32 51.1046 32 50Z"
-                fill="black"
-            />
-            <path
-                d="M22 40C22 38.8954 22.8954 38 24 38H55C56.1046 38 57 38.8954 57 40C57 41.1046 56.1046 42 55 42H24C22.8954 42 22 41.1046 22 40Z"
-                fill="black"
-            />
-            </g>
-            <defs>
-            <filter
-                id="filter0_d"
-                x="0.2"
-                y="0.2"
-                width="80"
-                height="80"
-                filterUnits="userSpaceOnUse"
-                color-interpolation-filters="sRGB"
-            >
-                <feFlood flood-opacity="0" result="BackgroundImageFix" />
-                <feColorMatrix
-                in="SourceAlpha"
-                type="matrix"
-                values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
-                result="hardAlpha"
+        <img src={MenuIcon} alt="open-menu" className="menu__men"/>
+        <div 
+            className="menu__prompt-circle" 
+            id="icon-prompt-circle"
+            onClick={e => {
+                e.preventDefault()
+                setShowMenu(true)
+            }}
+        ></div>
+        {
+            ShowMenu &&
+            <div className="menu__overlay">
+                <img 
+                    src={CloseIcon} 
+                    alt="close-menu" 
+                    className="menu__close-icon"
+                    onClick={e => {
+                        e.preventDefault()
+                        setShowMenu(false)
+                    }}
                 />
-                <feOffset dx="0.2" dy="0.2" />
-                <feGaussianBlur stdDeviation="5" />
-                <feComposite in2="hardAlpha" operator="out" />
-                <feColorMatrix
-                type="matrix"
-                values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"
-                />
-                <feBlend
-                mode="normal"
-                in2="BackgroundImageFix"
-                result="effect1_dropShadow"
-                />
-                <feBlend
-                mode="normal"
-                in="SourceGraphic"
-                in2="effect1_dropShadow"
-                result="shape"
-                />
-            </filter>
-            </defs>
-        </svg>
-            <div className="menu-icon__prompt-circle">
-
+                <div className="menu__menu">
+                    <CallToAction text="Get Lessons" link="https://www.wyzant.com/Tutors/DevelopmentWithAidan"/>
+                    <CallToAction text="Book a Call" link="https://calendly.com/vvibrant/15min"/>
+                    <CallToAction text="Read my Blog" link="https://aidan-tilgner.medium.com/"/>
+                    <div className="menu__social-icons">
+                        <a href="https://www.linkedin.com/in/aidan-tilgner-0a4a31157/" target="_blank" rel="noopener noreferrer" className="menu__social-link">
+                            <img src={LinkedIn} alt="linkedin account" className="menu__social-icon" />
+                        </a>
+                        <a href="https://github.com/AidanTilgner/" target="_blank" rel="noopener noreferrer" className="menu__social-link">
+                            <img src={Github} alt="github account" className="menu__social-icon" />
+                        </a>
+                        <a href="https://www.pinterest.com/aidan6721/_saved/" target="_blank" rel="noopener noreferrer" className="menu__social-link">
+                            <img src={Pinterest} alt="pinterest account" className="menu__social-icon" />
+                        </a>
+                        <a href="https://www.youtube.com/channel/UCKv_EugPMoiue4fGvgKy70A" target="_blank" rel="noopener noreferrer" className="menu__social-link">
+                            <img src={Youtube} alt="youtube channel" className="menu__social-icon" />
+                        </a>
+                    </div>
+                </div>
             </div>
+        }
+        
         </div>
     );
 }
 
-export default MenuIcon;
+export default Menu;
