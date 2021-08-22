@@ -1,5 +1,6 @@
 //components
 import Navbar from './components/Navbar/Navbar';
+import Home from './pages/Home/Home';
 
 //files
 import './styles/App.scss';
@@ -8,6 +9,7 @@ function App() {
   return (
     <div className="App">
       <Navbar/>
+      <Home/>
     </div>
   );
 }
