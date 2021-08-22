@@ -61,19 +61,31 @@ function Menu() {
                 />
                 <div className="menu__menu">
                     <CallToAction text="Get Lessons" link="https://www.wyzant.com/Tutors/DevelopmentWithAidan"/>
-                    <CallToAction text="Book a Call" link="https://calendly.com/vvibrant/15min"/>
+                    <CallToAction text="Book a Call" link="https://calendly.com/vvibrant/client-call"/>
                     <CallToAction text="Read my Blog" link="https://aidan-tilgner.medium.com/"/>
                     <div className="menu__social-icons">
-                        <a href="https://www.linkedin.com/in/aidan-tilgner-0a4a31157/" target="_blank" rel="noopener noreferrer" className="menu__social-link">
+                        <a className="menu__social-link" onClick={e => {
+                            e.preventDefault()
+                            window.open('https://www.linkedin.com/in/aidan-tilgner-0a4a31157/')
+                        }}>
                             <img src={LinkedIn} alt="linkedin account" className="menu__social-icon" />
                         </a>
-                        <a href="https://github.com/AidanTilgner/" target="_blank" rel="noopener noreferrer" className="menu__social-link">
+                        <a className="menu__social-link" onClick={e => {
+                            e.preventDefault()
+                            window.open("https://github.com/AidanTilgner/")
+                        }}>
                             <img src={Github} alt="github account" className="menu__social-icon" />
                         </a>
-                        <a href="https://www.pinterest.com/aidan6721/_saved/" target="_blank" rel="noopener noreferrer" className="menu__social-link">
+                        <a className="menu__social-link" onClick={e => {
+                            e.preventDefault()
+                            window.open("https://www.pinterest.com/aidan6721/_saved/")
+                        }}>
                             <img src={Pinterest} alt="pinterest account" className="menu__social-icon" />
                         </a>
-                        <a href="https://www.youtube.com/channel/UCKv_EugPMoiue4fGvgKy70A" target="_blank" rel="noopener noreferrer" className="menu__social-link">
+                        <a className="menu__social-link" onClick={e => {
+                            e.preventDefault()
+                            window.open("https://www.youtube.com/channel/UCKv_EugPMoiue4fGvgKy70A")
+                        }}>
                             <img src={Youtube} alt="youtube channel" className="menu__social-icon" />
                         </a>
                     </div>

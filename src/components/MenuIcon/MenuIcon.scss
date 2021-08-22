@@ -116,7 +116,7 @@
         }
 
         @include desktop{
-            right: 171px;
+            right: 170px;
         }
 
         @keyframes close-in{
@@ -187,7 +187,7 @@
         }
 
         @include desktop{
-            right: 200px;
+            right: 205px;
         }
     }
 
@@ -210,6 +210,36 @@
 
             @include tablet{
                 margin: 16px 16px;
+            }
+
+            &:hover{
+                @keyframes icon-zoom-in {
+                    from{
+                        transform: scale(1);
+                    }
+                    to{
+                        transform: scale(1.1);
+                    }
+                }
+                animation-name: icon-zoom-in;
+                animation-duration: .2s;
+                animation-fill-mode: forwards;
+                animation-timing-function: ease-in;
+            }
+
+            &:not(hover){
+                @keyframes icon-zoom-out {
+                    from{
+                        transform: scale(1.1);
+                    }
+                    to{
+                        transform: scale(1);
+                    }
+                }
+                animation-name: icon-zoom-out;
+                animation-duration: .2s;
+                animation-fill-mode: forwards;
+                animation-timing-function: ease-in;
             }
         }
 

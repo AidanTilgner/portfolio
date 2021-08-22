@@ -12,7 +12,10 @@ function CallToAction({ text, link }) {
     }
 
     return (
-        <a href={link ? link : '#'} target="_blank" className="cta" rel="noopener noreferrer">
+        <a className="cta" onClick={e => {
+            e.preventDefault()
+            window.open(link)
+        }}>
             <p className="cta__text">{text}</p>
             <div className="cta__arrow">
                 <svg width="61" height="16" viewBox="0 0 61 16" fill="none" xmlns="http://www.w3.org/2000/svg">
