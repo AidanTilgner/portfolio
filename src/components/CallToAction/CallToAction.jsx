@@ -6,16 +6,32 @@ import React from 'react'
 //files
 import './CallToAction.scss'
 
-function CallToAction({ text, link }) {
+function CallToAction({ text, link, download }) {
     if(link === undefined){
         console.warn(`You need to put a link in CTA ${text}`)
+    }
+
+    let linkHandler = () => {
+        if(!download){
+            window.open(link, `${download ? "_self" : "_blank"}`)
+        }else if(download){
+            console.log(link)
+            let newLink = document.createElement("a")
+            newLink.href = link
+            newLink.download = "aidan-tilgner-resume.pdf"
+            newLink.click()
+            newLink.remove()
+        }
     }
 
     return (
         <a className="cta" onClick={e => {
             e.preventDefault()
-            window.open(link)
-        }}>
+            linkHandler()
+        }}
+        href={link}
+        download={download}
+        >
             <p className="cta__text">{text}</p>
             <div className="cta__arrow">
                 <svg width="61" height="16" viewBox="0 0 61 16" fill="none" xmlns="http://www.w3.org/2000/svg">
