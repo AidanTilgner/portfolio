@@ -1,0 +1,43 @@
+@use '../../styles/partials/mixins' as *;
+@use '../../styles/partials/variables' as *;
+@use '../../styles/partials/typography' as *;
+
+.card{
+    min-width: fit-content;
+    max-width: 343px;
+    margin: 48px auto;
+    padding: 24px;
+    border-radius: 5px;
+    box-shadow: .2px .2px 10px 0 rgba($color: #000000, $alpha: .25);
+
+    @include tablet{
+        padding: 36px 75px;
+        max-width: 550px;
+    }
+
+    @include desktop{
+        padding: 36px;
+        max-width: 920px;
+    }
+
+    &__title{
+        font-size: $mobile-h1;
+        font-weight: 500;
+        margin: 0;
+        padding-block-end: 24px;
+        border-bottom: 2px solid $thirty;
+        margin-bottom: 24px;
+        width: 100%;
+
+        @include tablet{
+            font-size: $h1;
+        }
+
+        @include desktop{
+        }
+    }
+
+    &__children{
+        width: 100%;
+    }
+}
