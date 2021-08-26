@@ -11,12 +11,22 @@ import NodeJSIcon from '../../assets/Icons/NodeJSIcon.svg'
 import MySQLIcon from '../../assets/Icons/MySQLIcon.svg'
 import FigmaIcon from '../../assets/Icons/FigmaIcon.svg'
 import CallToAction from '../../components/CallToAction/CallToAction'
+import ImageSlider from '../../components/ImageSlider/ImageSlider'
+
+//images
+import Bandsite1 from '../../assets/Images/bandsite-home-hero.jpg'
+import Bandsite2 from '../../assets/Images/bandsite-home-gallery.jpg'
+import Bandsite3 from '../../assets/Images/bandsite-shows-header.jpg'
+import Bandsite4 from '../../assets/Images/bandsite-shows-shows.jpg'
 
 //files
 import './Home.scss'
 import resume from '../../assets/files/aidan-tilgner-resume.pdf'
 
 function Home() {
+    const projectPreviewImages = [Bandsite1, Bandsite2, Bandsite3, Bandsite4]
+    console.log(projectPreviewImages)
+
     return (
         <div className="home">
             <div className="home__hero">
@@ -172,14 +182,110 @@ function Home() {
                 <Card
                     title="My Services"
                 >
-
+                    <div className="services__content">
+                        <div className="services__section">
+                            <h2 className="services__title">Design</h2>
+                            <p className="services__description">
+                            I will <span className="bold">design a website</span> for you incorporating fresh, <span className="bold">
+                                useful content</span> for your users and/or potential clients.
+                            </p>
+                        </div>
+                        <div className="services__section">
+                            <h2 className="services__title">Development</h2>
+                            <p className="services__description">
+                                I will <span className="bold">develop</span>, <span className="bold">deploy</span>, 
+                                and <span className="bold">maintain</span> a website for 
+                                you, utilizing best-practices and <span className="bold">industry standard technologies</span>.
+                            </p>
+                        </div>
+                        <div className="services__section">
+                            <h2 className="services__title">Marketting</h2>
+                            <p className="services__description">
+                            I will <span className="bold">strategize</span> and implement a plan  
+                            to <span className="bold">generate leads</span> to your website, and 
+                            ultimately <span className="bold">create conversions</span>.
+                            </p>
+                        </div>
+                        <div className="services__section">
+                            <h2 className="services__title">Social Media</h2>
+                            <p className="services__description">
+                            I’ll manage your company’s <span className="bold">social media presence</span> so 
+                            that you don’t have to.
+                            </p>
+                        </div>
+                    </div>
+                    <div className="services__footer">
+                        <CallToAction
+                            text="Get a Free Quote"
+                            link="mailto:aidan.tilgner@vvibrant.dev"
+                        />
+                    </div>
                 </Card>
             </div>
             <div className="projects">
                 <Card
                     title="Featured Projects"
                 >
-
+                    <div className="projects__content">
+                        <div className="projects__project">
+                            <ImageSlider
+                                images={projectPreviewImages}
+                            />
+                            <div className="projects__info">
+                                <h2 className="projects__title">
+                                    BandSite
+                                </h2>
+                                <p className="projects__description">
+                                    BandSite is a general purpose website for
+                                    a band. It was my first project utilizing
+                                    JavaScript DOM manipulation.
+                                </p>
+                                <div className="projects__ctas">
+                                    <CallToAction
+                                        text="View on Github"
+                                        link="https://github.com/AidanTilgner/tilgner-aidan-bandsite"
+                                    />
+                                    <div className="projects__spacer"></div>
+                                    <CallToAction
+                                        text="View Case Study"
+                                        link="#"
+                                    />
+                                </div>
+                            </div>
+                        </div>
+                        <div className="projects__project">
+                            <ImageSlider
+                                images={projectPreviewImages}
+                            />
+                            <div className="projects__info">
+                                <h2 className="projects__title">
+                                    BandSite
+                                </h2>
+                                <p className="projects__description">
+                                    BandSite is a general purpose website for
+                                    a band. It was my first project utilizing
+                                    JavaScript DOM manipulation.
+                                </p>
+                                <div className="projects__ctas">
+                                    <CallToAction
+                                        text="View on Github"
+                                        link="https://github.com/AidanTilgner/tilgner-aidan-bandsite"
+                                    />
+                                    <div className="projects__spacer"></div>
+                                    <CallToAction
+                                        text="View Case Study"
+                                        link="#"
+                                    />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="projects__footer">
+                        <CallToAction
+                            text="View all Projects"
+                            link="#"
+                        />
+                    </div>
                 </Card>
             </div>
         </div>
