@@ -26,7 +26,7 @@
             align-items: center;
             margin-bottom: 92px;
             border-left: 4px solid $thirty;
-            padding-inline-start: 36px;
+            padding-inline-start: 56px;
         }
     }
 
@@ -59,6 +59,7 @@
         font-size: 18px;
         margin-bottom: 56px;
         width: 250px;
+        font-weight: 600;
 
         @include tablet{
             margin-bottom: 140px;

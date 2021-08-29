@@ -12,20 +12,24 @@ import MySQLIcon from '../../assets/Icons/MySQLIcon.svg'
 import FigmaIcon from '../../assets/Icons/FigmaIcon.svg'
 import CallToAction from '../../components/CallToAction/CallToAction'
 import ImageSlider from '../../components/ImageSlider/ImageSlider'
+import Footer from '../../components/Footer/Footer'
 
 //images
-import Bandsite1 from '../../assets/Images/bandsite-home-hero.jpg'
-import Bandsite2 from '../../assets/Images/bandsite-home-gallery.jpg'
-import Bandsite3 from '../../assets/Images/bandsite-shows-header.jpg'
-import Bandsite4 from '../../assets/Images/bandsite-shows-shows.jpg'
+import InStock1 from '../../assets/Images/instock-home.jpg'
+import InStock2 from '../../assets/Images/instock-inventory.jpg'
+import InStock3 from '../../assets/Images/instock-new-warehouse.jpg'
+import Soapbox1 from '../../assets/Images/soapbox-home.jpg'
+import Soapbox2 from '../../assets/Images/soapbox-profile.jpg'
+import Soapbox3 from '../../assets/Images/soapbox-topics.jpg'
+import Soapbox4 from '../../assets/Images/soapbox-upload.jpg'
 
 //files
 import './Home.scss'
 import resume from '../../assets/files/aidan-tilgner-resume.pdf'
 
 function Home() {
-    const projectPreviewImages = [Bandsite1, Bandsite2, Bandsite3, Bandsite4]
-    console.log(projectPreviewImages)
+    const project1Images = [ InStock1, InStock2, InStock3 ]
+    const project2Images = [ Soapbox1, Soapbox2, Soapbox3, Soapbox4 ]
 
     return (
         <div className="home">
@@ -76,7 +80,10 @@ function Home() {
                             , <span className="bold">developed</span>, 
                             or <span className="bold">updated</span>.
                         </p>
-                        <CallToAction text="Book a Free Call"/>
+                        <CallToAction 
+                            text="Book a Call"
+                            link="https://calendly.com/vvibrant/client-call"
+                        />
                     </div>
                     <div className="definition__section">
                         <p className="definition__number"><span className="bold">3</span></p>
@@ -85,7 +92,10 @@ function Home() {
                         to <span className="bold">develop</span>, <span className="bold">update</span>
                         , or <span className="bold">maintain</span> your presence on the web.
                         </p>
-                        <CallToAction text="Book a Free Call"/>
+                        <CallToAction 
+                            text="Book a Call"
+                            link="https://calendly.com/vvibrant/client-call"
+                        />
                     </div>
                 </Card>
             </div>
@@ -229,21 +239,20 @@ function Home() {
                     <div className="projects__content">
                         <div className="projects__project">
                             <ImageSlider
-                                images={projectPreviewImages}
+                                images={project1Images}
                             />
                             <div className="projects__info">
                                 <h2 className="projects__title">
-                                    BandSite
+                                    InStock
                                 </h2>
                                 <p className="projects__description">
-                                    BandSite is a general purpose website for
-                                    a band. It was my first project utilizing
-                                    JavaScript DOM manipulation.
+                                    InStock is a warehouse management interface. It uses 
+                                    React, Node and Express as technologies.
                                 </p>
                                 <div className="projects__ctas">
                                     <CallToAction
                                         text="View on Github"
-                                        link="https://github.com/AidanTilgner/tilgner-aidan-bandsite"
+                                        link="https://github.com/cdd741/In-Stock"
                                     />
                                     <div className="projects__spacer"></div>
                                     <CallToAction
@@ -255,21 +264,20 @@ function Home() {
                         </div>
                         <div className="projects__project">
                             <ImageSlider
-                                images={projectPreviewImages}
+                                images={project2Images}
                             />
                             <div className="projects__info">
                                 <h2 className="projects__title">
-                                    BandSite
+                                    Soapbox
                                 </h2>
                                 <p className="projects__description">
-                                    BandSite is a general purpose website for
-                                    a band. It was my first project utilizing
-                                    JavaScript DOM manipulation.
+                                    Soapbox is a prototype social media platform
+                                    for open debate. 
                                 </p>
                                 <div className="projects__ctas">
                                     <CallToAction
                                         text="View on Github"
-                                        link="https://github.com/AidanTilgner/tilgner-aidan-bandsite"
+                                        link="https://github.com/AidanTilgner/tilgner-aidan-soapbox"
                                     />
                                     <div className="projects__spacer"></div>
                                     <CallToAction
@@ -283,11 +291,12 @@ function Home() {
                     <div className="projects__footer">
                         <CallToAction
                             text="View all Projects"
-                            link="#"
+                            link="https://github.com/AidanTilgner"
                         />
                     </div>
                 </Card>
             </div>
+            <Footer/>
         </div>
     )
 }

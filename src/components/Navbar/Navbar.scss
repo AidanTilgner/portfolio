@@ -20,6 +20,10 @@
     &__title{
         margin: 0;
         font-size: $mobile-h2;
+
+        @include tablet{
+            font-size: $h2;
+        }
     }
 
     &__options{
