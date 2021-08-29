@@ -2,7 +2,7 @@
 import React, { useEffect } from 'react'
 
 //components
-import Menu from '../MenuIcon/MenuIcon'
+import Menu from '../Menu/Menu'
 import CallToAction from '../CallToAction/CallToAction'
 
 //files

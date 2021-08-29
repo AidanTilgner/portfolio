@@ -1,5 +1,5 @@
 //modules
-import React from 'react'
+import React, { useEffect, useState, useRef } from 'react'
 
 //components
 
@@ -7,6 +7,7 @@ import React from 'react'
 import './CallToAction.scss'
 
 function CallToAction({ text, link, download }) {
+
     if(link === undefined){
         console.warn(`You need to put a link in CTA ${text}`)
     }
@@ -24,13 +25,47 @@ function CallToAction({ text, link, download }) {
         }
     }
 
+    useEffect(() => {
+        let arrows = Array.from(document.getElementsByClassName('cta__arrow'))
+        arrows.forEach(arrow => {
+            arrow.style.animationIterationCount = 1
+        })
+    }, [])
+
+    let animator = (target, animate) => {
+        if(animate){
+            console.log(target, target.children[1])
+            target.children[1]
+            .style
+            .animationIterationCount = 'infinite' 
+            console.log('animating')
+        }else{
+            target.children[1]
+            .style
+            .animationIterationCount = 1
+            console.log('stopping animation')
+        }
+    }
+
     return (
-        <a className="cta" onClick={e => {
-            e.preventDefault()
-            linkHandler()
-        }}
-        href={link}
-        download={download}
+        <a 
+            className="cta" 
+            onClick={e => {
+                e.preventDefault()
+                linkHandler()
+            }}
+            onMouseEnter={e => {
+                e.preventDefault()
+                e.stopPropagation()
+                animator(e.target, true)
+            }}
+            onMouseLeave={e => {
+                e.preventDefault()
+                e.stopPropagation()
+                animator(e.target, false)
+            }}
+            href={link}
+            download={download}
         >
             <p className="cta__text">{text}</p>
             <div className="cta__arrow">

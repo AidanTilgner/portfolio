@@ -2,7 +2,6 @@
 import React from 'react'
 
 //components
-import CallToAction from '../CallToAction/CallToAction'
 
 //files
 import './Card.scss'

@@ -10,6 +10,10 @@
     text-decoration: none;
     color: $thirty;
 
+    @include desktop{
+        margin-left: auto;
+    }
+
     &:hover{
         color: $ten;
         
@@ -20,6 +24,7 @@
         font-weight: 600;
         margin: 0;
         margin-bottom: 6px;
+        pointer-events: none;
 
         @include tablet{
             font-size: $p;
@@ -28,6 +33,7 @@
 
     &__arrow{
         position: relative;
+        pointer-events: none;
 
         @keyframes cta-arrow-animation {
             0%{

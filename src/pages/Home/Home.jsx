@@ -11,12 +11,26 @@ import NodeJSIcon from '../../assets/Icons/NodeJSIcon.svg'
 import MySQLIcon from '../../assets/Icons/MySQLIcon.svg'
 import FigmaIcon from '../../assets/Icons/FigmaIcon.svg'
 import CallToAction from '../../components/CallToAction/CallToAction'
+import ImageSlider from '../../components/ImageSlider/ImageSlider'
+import Footer from '../../components/Footer/Footer'
+
+//images
+import InStock1 from '../../assets/Images/instock-home.jpg'
+import InStock2 from '../../assets/Images/instock-inventory.jpg'
+import InStock3 from '../../assets/Images/instock-new-warehouse.jpg'
+import Soapbox1 from '../../assets/Images/soapbox-home.jpg'
+import Soapbox2 from '../../assets/Images/soapbox-profile.jpg'
+import Soapbox3 from '../../assets/Images/soapbox-topics.jpg'
+import Soapbox4 from '../../assets/Images/soapbox-upload.jpg'
 
 //files
 import './Home.scss'
 import resume from '../../assets/files/aidan-tilgner-resume.pdf'
 
 function Home() {
+    const project1Images = [ InStock1, InStock2, InStock3 ]
+    const project2Images = [ Soapbox1, Soapbox2, Soapbox3, Soapbox4 ]
+
     return (
         <div className="home">
             <div className="home__hero">
@@ -57,7 +71,10 @@ function Home() {
                             strategy, and <span className="bold">development</span> 
                             of a <span className="bold">website</span>.
                         </p>
-                        <CallToAction text="Learn to do this"/>
+                        <CallToAction 
+                            text="Learn to do this"
+                            link="https://www.wyzant.com/Tutors/DevelopmentWithAidan"
+                        />
                     </div>
                     <div className="definition__section">
                         <p className="definition__number"><span className="bold">2</span></p>
@@ -66,7 +83,10 @@ function Home() {
                             , <span className="bold">developed</span>, 
                             or <span className="bold">updated</span>.
                         </p>
-                        <CallToAction text="Book a Free Call"/>
+                        <CallToAction 
+                            text="Book a Call"
+                            link="https://calendly.com/vvibrant/client-call"
+                        />
                     </div>
                     <div className="definition__section">
                         <p className="definition__number"><span className="bold">3</span></p>
@@ -75,7 +95,10 @@ function Home() {
                         to <span className="bold">develop</span>, <span className="bold">update</span>
                         , or <span className="bold">maintain</span> your presence on the web.
                         </p>
-                        <CallToAction text="Book a Free Call"/>
+                        <CallToAction 
+                            text="Book a Call"
+                            link="https://calendly.com/vvibrant/client-call"
+                        />
                     </div>
                 </Card>
             </div>
@@ -172,16 +195,111 @@ function Home() {
                 <Card
                     title="My Services"
                 >
-
+                    <div className="services__content">
+                        <div className="services__section">
+                            <h2 className="services__title">Design</h2>
+                            <p className="services__description">
+                            I will <span className="bold">design a website</span> for you incorporating fresh, <span className="bold">
+                                useful content</span> for your users and/or potential clients.
+                            </p>
+                        </div>
+                        <div className="services__section">
+                            <h2 className="services__title">Development</h2>
+                            <p className="services__description">
+                                I will <span className="bold">develop</span>, <span className="bold">deploy</span>, 
+                                and <span className="bold">maintain</span> a website for 
+                                you, utilizing best-practices and <span className="bold">industry standard technologies</span>.
+                            </p>
+                        </div>
+                        <div className="services__section">
+                            <h2 className="services__title">Marketting</h2>
+                            <p className="services__description">
+                            I will <span className="bold">strategize</span> and implement a plan  
+                            to <span className="bold">generate leads</span> to your website, and 
+                            ultimately <span className="bold">create conversions</span>.
+                            </p>
+                        </div>
+                        <div className="services__section">
+                            <h2 className="services__title">Social Media</h2>
+                            <p className="services__description">
+                            I’ll manage your company’s <span className="bold">social media presence</span> so 
+                            that you don’t have to.
+                            </p>
+                        </div>
+                    </div>
+                    <div className="services__footer">
+                        <CallToAction
+                            text="Get a Free Quote"
+                            link="mailto:aidan.tilgner@vvibrant.dev"
+                        />
+                    </div>
                 </Card>
             </div>
             <div className="projects">
                 <Card
                     title="Featured Projects"
                 >
-
+                    <div className="projects__content">
+                        <div className="projects__project">
+                            <ImageSlider
+                                images={project1Images}
+                            />
+                            <div className="projects__info">
+                                <h2 className="projects__title">
+                                    InStock
+                                </h2>
+                                <p className="projects__description">
+                                    InStock is a warehouse management interface. It uses 
+                                    React, Node and Express as technologies.
+                                </p>
+                                <div className="projects__ctas">
+                                    <CallToAction
+                                        text="View on Github"
+                                        link="https://github.com/cdd741/In-Stock"
+                                    />
+                                    <div className="projects__spacer"></div>
+                                    <CallToAction
+                                        text="View Case Study"
+                                        link="#"
+                                    />
+                                </div>
+                            </div>
+                        </div>
+                        <div className="projects__project">
+                            <ImageSlider
+                                images={project2Images}
+                            />
+                            <div className="projects__info">
+                                <h2 className="projects__title">
+                                    Soapbox
+                                </h2>
+                                <p className="projects__description">
+                                    Soapbox is a prototype social media platform
+                                    for open debate. 
+                                </p>
+                                <div className="projects__ctas">
+                                    <CallToAction
+                                        text="View on Github"
+                                        link="https://github.com/AidanTilgner/tilgner-aidan-soapbox"
+                                    />
+                                    <div className="projects__spacer"></div>
+                                    <CallToAction
+                                        text="View Case Study"
+                                        link="#"
+                                    />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="projects__footer">
+                        <CallToAction
+                            text="View all Projects"
+                            link="https://github.com/AidanTilgner"
+                        />
+                    </div>
                 </Card>
             </div>
+            <Footer/>
         </div>
     )
 }

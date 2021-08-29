@@ -1,0 +1,118 @@
+@use '../../styles/partials/mixins' as *;
+@use '../../styles/partials/variables' as *;
+@use '../../styles/partials/typography' as *;
+
+.footer{
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 56px;
+
+    &__subtitle{
+        font-size: $mobile-h1;
+        font-weight: 600;
+        margin: 0;
+        margin-bottom: 36px;
+
+        @include tablet{
+            font-size: $h1;
+            margin-bottom: 36px;
+        }
+
+        @include desktop{
+            width: 50%;
+        }
+    }
+
+    &__content{
+        width: 100%;
+        display: flex;
+        justify-content: flex-end;
+        align-items: flex-end;
+        flex-direction: column;
+        margin-bottom: 20px;
+
+        &>*{
+            margin-bottom: 36px;
+        }
+    }
+
+    &__text{
+        font-size: $mobile-h2;
+        font-weight: 600;
+        margin: 0;
+        margin-bottom: 24px;
+
+        @include tablet{
+            font-size: $h2;
+        }
+    }
+
+    &__link{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: fit-content;
+        padding: 14px 24px;
+        box-shadow: .2px .2px 10px 0 rgba($color: #000000, $alpha: .25);
+        font-size: $mobile-p;
+        font-weight: 600;
+        color: $ten;
+        border-radius: 5px;
+        margin-bottom: 56px;
+
+        @include tablet{
+            font-size: $p;
+            padding: 24px 36px;
+            margin-bottom: 82px;
+        }
+
+        @include desktop{
+            width: 50%;
+        }
+    }
+
+    &__icons{
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        border-radius: 5px;
+    }
+
+    &__icon-link{
+        display: inline-block;
+        text-decoration: none;
+        width: 45px;
+        height: 45px;
+
+        @include tablet{
+            width: 70px;
+            height: 70px;
+        }
+        
+        &>*{
+            width: 45px;
+            height: 45px;
+
+            @include tablet{
+                width: 70px;
+                height: 70px;
+            }
+        }
+    }
+
+    &__copyright{
+        text-align: center;
+        font-size: $mobile-p;
+        width: 100%;
+        margin-top: 56px;
+
+        @include tablet{
+            margin-top: 82px;
+            font-size: $p;
+        }
+    }
+}
