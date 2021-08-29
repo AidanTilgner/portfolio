@@ -71,7 +71,10 @@ function Home() {
                             strategy, and <span className="bold">development</span> 
                             of a <span className="bold">website</span>.
                         </p>
-                        <CallToAction text="Learn to do this"/>
+                        <CallToAction 
+                            text="Learn to do this"
+                            link="https://www.wyzant.com/Tutors/DevelopmentWithAidan"
+                        />
                     </div>
                     <div className="definition__section">
                         <p className="definition__number"><span className="bold">2</span></p>

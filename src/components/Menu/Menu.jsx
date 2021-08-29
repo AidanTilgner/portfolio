@@ -11,7 +11,7 @@ import Pinterest from '../../assets/Icons/PinterestIcon.svg'
 import Youtube from '../../assets/Icons/YouTubeIcon.svg'
 
 //files
-import "./MenuIcon.scss";
+import "./Menu.scss";
 
 function Menu() {
     let [prompt, setPrompt] = useState(true);
