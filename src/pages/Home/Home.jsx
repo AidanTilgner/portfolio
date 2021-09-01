@@ -212,7 +212,7 @@ function Home() {
                             </p>
                         </div>
                         <div className="services__section">
-                            <h2 className="services__title">Marketting</h2>
+                            <h2 className="services__title">Marketing</h2>
                             <p className="services__description">
                             I will <span className="bold">strategize</span> and implement a plan  
                             to <span className="bold">generate leads</span> to your website, and 
