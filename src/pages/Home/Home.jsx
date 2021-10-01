@@ -258,10 +258,10 @@ function Home() {
                                         link="https://github.com/cdd741/In-Stock"
                                     />
                                     <div className="projects__spacer"></div>
-                                    <CallToAction
+                                    {/* <CallToAction
                                         text="View Case Study"
                                         link="#"
-                                    />
+                                    /> */}
                                 </div>
                             </div>
                         </div>
@@ -283,10 +283,10 @@ function Home() {
                                         link="https://github.com/AidanTilgner/tilgner-aidan-soapbox"
                                     />
                                     <div className="projects__spacer"></div>
-                                    <CallToAction
+                                    {/* <CallToAction
                                         text="View Case Study"
                                         link="#"
-                                    />
+                                    /> */}
                                 </div>
                             </div>
                         </div>
