@@ -68,8 +68,8 @@ function Home() {
                         <p className="definition__text">
                             Someone who is <span className="bold">proficient</span> in strategizing and carrying 
                             out the <span className="bold">design</span>, <span className="bold">marketing </span> 
-                            strategy, and <span className="bold">development </span> 
-                            of a <span className="bold">website</span>.
+                            strategy, and <span className="bold">development </span> of
+                            a <span className="bold">website</span>.
                         </p>
                         <CallToAction 
                             text="Learn to do this"
