@@ -4,14 +4,13 @@ import React, { useEffect } from "react";
 //components
 import Menu from "../Menu/Menu";
 import CallToAction from "../CallToAction/CallToAction";
-import { useLocation } from "react-router-dom";
+import { useLocation, Link } from "react-router-dom";
 
 //files
 import "./Navbar.scss";
 
 function Navbar() {
   const location = useLocation();
-  console.log("location", location);
 
   useEffect(() => {
     window.addEventListener("scroll", () => {
@@ -32,11 +31,14 @@ function Navbar() {
   let endpoint = location.pathname.replace("/", "");
   // captilize first letter of each word
   endpoint = endpoint.replace(/\b\w/g, (l) => l.toUpperCase());
+  endpoint = endpoint.replace("/", "");
 
   return (
     <div className="navbar" id="navbar">
       <h2 className="navbar__title">
-        Aidan Tilgner{" "}
+        <Link to="/" style={{ textDecoration: "none", color: "black" }}>
+          Aidan Tilgner{" "}
+        </Link>
         <span
           style={{
             color: "rgba(0, 0, 0, .5)",
