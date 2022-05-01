@@ -1,41 +1,63 @@
 //modules
-import React, { useEffect } from 'react'
+import React, { useEffect } from "react";
 
 //components
-import Menu from '../Menu/Menu'
-import CallToAction from '../CallToAction/CallToAction'
+import Menu from "../Menu/Menu";
+import CallToAction from "../CallToAction/CallToAction";
+import { useLocation } from "react-router-dom";
 
 //files
-import './Navbar.scss'
+import "./Navbar.scss";
 
 function Navbar() {
+  const location = useLocation();
+  console.log("location", location);
 
-    useEffect(() => {
-        window.addEventListener('scroll', () => {
-            if(window.pageYOffset > 0){
-                document.getElementById("navbar").style.boxShadow = "0px 0.2px 10px rgba(0, 0, 0, 0.25)"
-            }else{
-                document.getElementById("navbar").style.boxShadow = "none"
-            }
-        });
+  useEffect(() => {
+    window.addEventListener("scroll", () => {
+      if (window.pageYOffset > 0) {
+        document.getElementById("navbar").style.boxShadow =
+          "0px 0.2px 10px rgba(0, 0, 0, 0.25)";
+      } else {
+        document.getElementById("navbar").style.boxShadow = "none";
+      }
+    });
 
-        // returned function will be called on component unmount 
-        return () => {
-            window.removeEventListener('scroll', () => {})
-        }
-    }, [])
+    // returned function will be called on component unmount
+    return () => {
+      window.removeEventListener("scroll", () => {});
+    };
+  }, []);
 
-    return (
-        <div className="navbar" id="navbar">
-            <h2 className="navbar__title">Aidan Tilgner</h2>
-            <div className="navbar__options">
-                <span className="navbar__cta">
-                    <CallToAction text="Book a Call" link="https://calendly.com/vvibrant/client-call"/>
-                </span>
-                <Menu/>
-            </div>
-        </div>
-    )
+  let endpoint = location.pathname.replace("/", "");
+  // captilize first letter of each word
+  endpoint = endpoint.replace(/\b\w/g, (l) => l.toUpperCase());
+
+  return (
+    <div className="navbar" id="navbar">
+      <h2 className="navbar__title">
+        Aidan Tilgner{" "}
+        <span
+          style={{
+            color: "rgba(0, 0, 0, .5)",
+            fontSize: "20px",
+            fontWeight: "500",
+          }}
+        >
+          {location.pathname !== "/" && `/ ${endpoint}`}
+        </span>
+      </h2>
+      <div className="navbar__options">
+        <span className="navbar__cta">
+          <CallToAction
+            text="Book a Call"
+            link="https://calendly.com/vvibrant/client-call"
+          />
+        </span>
+        <Menu />
+      </div>
+    </div>
+  );
 }
 
-export default Navbar
+export default Navbar;
