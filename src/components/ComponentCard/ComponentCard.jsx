@@ -47,6 +47,11 @@ function ComponentCard({ title, link, previewImage, description }) {
         flex-direction: column;
         justify-content: center;
         align-items: center;
+
+        &-img {
+          width: 95%;
+          box-shadow: 0.2px 0.2px 6px 0px rgba(0, 0, 0, 0.25);
+        }
       }
 
       &__description {
@@ -67,7 +72,11 @@ function ComponentCard({ title, link, previewImage, description }) {
       </div>
       <div className="component-card__body">
         <div className="component-card__preview">
-          <img src={previewImage} alt={title + " Preview"} />
+          <img
+            className="component-card__preview-img"
+            src={previewImage}
+            alt={title + " Preview"}
+          />
         </div>
         <div className="component-card__description">{description}</div>
         <div className="component-card__link">

@@ -1,43 +1,25 @@
+import NavbarImg from "../components/Navbar/Navbar.png";
+import NavbarZip from "../components/Navbar/Navbar.zip";
+
 export const components = [
   {
-    title: "Forms",
-    id: "forms",
+    title: "Navigation",
+    id: "navigation",
     children: [
       {
-        title: "Dynamic Form",
-        id: "dynamic-form",
-        link: "/docs/forms/dynamic-form",
-        previewImage: "",
+        title: "Clean Navbar",
+        id: "clean-navbar",
+        link: "/docs/navigation/clean-navbar",
+        previewImage: NavbarImg,
         requiredDependencies: [],
-        downloads: [],
+        downloads: [
+          {
+            name: "Download for React",
+            url: NavbarZip,
+          },
+        ],
         description:
-          "This Dynamic Form component takes in a “fields” prop among others to dynamically render a form with all the necessary functionality you’d expect.",
-      },
-      {
-        title: "Form",
-        id: "form",
-        link: "/docs/forms/form",
-        previewImage: "",
-        requiredDependencies: [],
-        downloads: [],
-        description:
-          "This Form component takes in a “fields” prop among others to dynamically render a form with all the necessary functionality you’d expect.",
-      },
-    ],
-  },
-  {
-    title: "Buttons",
-    id: "buttons",
-    children: [
-      {
-        title: "Button",
-        id: "button",
-        link: "/docs/buttons/button",
-        previewImage: "",
-        requiredDependencies: [],
-        downloads: [],
-        description:
-          "This Button component takes in a “children” prop among others to dynamically render a button with all the necessary functionality you’d expect.",
+          "This Navbar is the one from my personal portfolio site. It's a clean and minimalistic navbar with a customizable menu.",
       },
     ],
   },

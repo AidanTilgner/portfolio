@@ -109,7 +109,6 @@ function Components() {
               <h2 className="components__section-title">{section.title}</h2>
               <div className="components__section-cards">
                 {section.children.map((card, idx) => {
-                  console.log("Id: ", card.id);
                   return (
                     <div
                       className="components__card-container"

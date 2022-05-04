@@ -11,13 +11,9 @@ function Docs() {
 
   const component = components
     .find((section) => {
-      console.log("Section: ", section);
-      console.log("Section ID: ", section_id);
       return section.id === section_id;
     })
     .children.find((component) => {
-      console.log("Component: ", component);
-      console.log("Component ID: ", component_id);
       return component.id === component_id;
     });
 
@@ -51,11 +47,19 @@ function Docs() {
         box-shadow: 0.2px 0.2px 6px rgba(0, 0, 0, 0.25);
         margin: 24px 0;
         aspect-ratio: 16/9;
+        display: flex;
+        justify-content: center;
+        align-items: center;
 
         @media (min-width: 768px) {
           width: 54%;
           aspect-ratio: 16/9;
           margin: 0;
+        }
+
+        &-img {
+          width: 95%;
+          box-shadow: 0.2px 0.2px 6px rgba(0, 0, 0, 0.25);
         }
       }
 
@@ -74,6 +78,7 @@ function Docs() {
           font-weight: 600;
           font-family: "Roboto", sans-serif;
           font-weight: 400;
+          margin-top: 36px;
         }
 
         &__list {
@@ -101,12 +106,13 @@ function Docs() {
           <img
             src={component.previewImage}
             alt={component.title + " Preview"}
+            className="docs__preview-img"
           />
         </div>
         <div className="docs__content">
           <p className="docs__description">{component.description}</p>
           <div className="docs__list-section">
-            <p className="docs__list-section__title">Required Dependencies</p>
+            <p className="docs__list-section__title">Required Dependencies:</p>
             <ul className="docs__list-section__list">
               {component.requiredDependencies.map((dependency) => {
                 return (
@@ -114,22 +120,36 @@ function Docs() {
                     key={dependency}
                     className="docs__list-section__list-item"
                   >
-                    {dependency}
+                    <a href={dependency.url} target="_blank" rel="noreferrer">
+                      {dependency.name}
+                    </a>
                   </li>
                 );
               })}
             </ul>
           </div>
           <div className="docs__list-section">
-            <p className="docs__list-section__title">Downloads</p>
+            <p className="docs__list-section__title">Downloads:</p>
             <ul className="docs__list-section__list">
               {component.downloads.map((download) => {
                 return (
                   <li
-                    key={download.title}
+                    key={download.name}
                     className="docs__list-section__list-item"
                   >
-                    <a href={download.url}>{download.title}</a>
+                    <a
+                      style={{
+                        textDecoration: "underline",
+                        color: "#2256f2",
+                        fontWeight: "500",
+                      }}
+                      href={download.url}
+                      download
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      {download.name}
+                    </a>
                   </li>
                 );
               })}
