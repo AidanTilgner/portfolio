@@ -1,32 +1,29 @@
-@use './partials/mixins' as *;
-@use './partials/variables' as *;
-@use './partials/typography' as *;
+@use "./partials/mixins" as *;
+@use "./partials/variables" as *;
+@use "./partials/typography" as *;
 
-html{
+html {
   font-size: 10px;
 }
 
-body{
+body {
   margin: 0;
   padding: 0;
 }
 
-*{
+* {
   box-sizing: border-box;
-  font-family: 'Quicksand', sans-serif;
+  font-family: "Quicksand", sans-serif;
 }
 
-.App{
-}
-
-.semi-bold{
+.semi-bold {
   font-weight: 500;
 }
 
-.bold{
+.bold {
   font-weight: 600;
 }
 
-.ten{
+.ten {
   color: $ten;
 }

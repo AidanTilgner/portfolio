@@ -1,16 +1,29 @@
 //components
-import Navbar from './components/Navbar/Navbar';
-import Home from './pages/Home/Home';
+import Navbar from "./components/Navbar/Navbar";
+import Home from "./pages/Home/Home";
+import Components from "./pages/Components/Components";
+import Docs from "./pages/Docs/Docs";
+// add react router
+import { HashRouter as Router, Switch, Route } from "react-router-dom";
 
 //files
-import './styles/App.scss';
+import "./styles/App.scss";
 
 function App() {
   return (
-    <div className="App">
-      <Navbar/>
-      <Home/>
-    </div>
+    <Router>
+      <div className="App">
+        <Navbar />
+        <Switch>
+          <Route exact path="/" render={() => <Home />} />
+          <Route exact path="/components" render={() => <Components />} />
+          <Route
+            path="/docs/:section_id/:component_id"
+            render={() => <Docs />}
+          />
+        </Switch>
+      </div>
+    </Router>
   );
 }
 
