@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 
 /** @jsxImportSource @emotion/react */
 import { css } from "@emotion/react";
-import { Link } from "react-router-dom";
+import { Link } from "react-scroll";
 
 import "./MenuList.scss";
 
@@ -102,7 +102,9 @@ function MenuList({ items }) {
                       <li key={child.id}>
                         <Link
                           className="child-menu-list__title"
-                          to={`/components/#${child.id}`}
+                          to={child.id}
+                          spy={true}
+                          smooth={true}
                         >
                           {child.title}
                         </Link>

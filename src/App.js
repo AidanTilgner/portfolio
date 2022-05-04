@@ -17,7 +17,10 @@ function App() {
         <Switch>
           <Route exact path="/" render={() => <Home />} />
           <Route exact path="/components" render={() => <Components />} />
-          <Route path="/docs" render={() => <Docs />} />
+          <Route
+            path="/docs/:section_id/:component_id"
+            render={() => <Docs />}
+          />
         </Switch>
       </div>
     </Router>

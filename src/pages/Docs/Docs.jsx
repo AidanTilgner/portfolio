@@ -3,8 +3,24 @@ import React from "react";
 /** @jsxImportSource @emotion/react */
 import { css } from "@emotion/react";
 import Breadcrumbs from "../../components/Breadcrumbs/Breadcrumbs";
+import { components } from "../../assets/data/components";
+import { useParams } from "react-router-dom";
 
 function Docs() {
+  const { section_id, component_id } = useParams();
+
+  const component = components
+    .find((section) => {
+      console.log("Section: ", section);
+      console.log("Section ID: ", section_id);
+      return section.id === section_id;
+    })
+    .children.find((component) => {
+      console.log("Component: ", component);
+      console.log("Component ID: ", component_id);
+      return component.id === component_id;
+    });
+
   const style = css`
     padding-block-start: 36px;
     padding-inline-start: 24px;
@@ -82,30 +98,41 @@ function Docs() {
       <Breadcrumbs path={"Components/Dynamic Form"} />
       <div className="docs__body">
         <div className="docs__preview">
-          <img />
+          <img
+            src={component.previewImage}
+            alt={component.title + " Preview"}
+          />
         </div>
         <div className="docs__content">
-          <p className="docs__description">
-            This Dynamic Form component is meant to do some cool things and this
-            is where the documentation is. I think it’s a cool component go
-            ahead and download it.
-          </p>
+          <p className="docs__description">{component.description}</p>
           <div className="docs__list-section">
             <p className="docs__list-section__title">Required Dependencies</p>
             <ul className="docs__list-section__list">
-              <li className="docs__list-section__list-item">Sass</li>
-              <li className="docs__list-section__list-item">React</li>
+              {component.requiredDependencies.map((dependency) => {
+                return (
+                  <li
+                    key={dependency}
+                    className="docs__list-section__list-item"
+                  >
+                    {dependency}
+                  </li>
+                );
+              })}
             </ul>
           </div>
           <div className="docs__list-section">
             <p className="docs__list-section__title">Downloads</p>
             <ul className="docs__list-section__list">
-              <li className="docs__list-section__list-item">
-                <a href="#">Download for Svelte</a>
-              </li>
-              <li className="docs__list-section__list-item">
-                <a href="#">Download for React</a>
-              </li>
+              {component.downloads.map((download) => {
+                return (
+                  <li
+                    key={download.title}
+                    className="docs__list-section__list-item"
+                  >
+                    <a href={download.url}>{download.title}</a>
+                  </li>
+                );
+              })}
             </ul>
           </div>
         </div>

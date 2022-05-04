@@ -7,6 +7,8 @@ import ComponentCard from "../../components/ComponentCard/ComponentCard";
 
 import "./Components.scss";
 
+import { components } from "../../assets/data/components";
+
 function Components() {
   const style = css`
     .components {
@@ -86,77 +88,14 @@ function Components() {
     }
   `;
 
-  const sections = [
-    {
-      title: "Forms",
-      id: 1,
-      children: [
-        {
-          title: "Dynamic Form",
-          id: "dynamic-form",
-          link: "/docs/components/forms/dynamic-form",
-          previewImage: "",
-          description:
-            "This Dynamic Form component takes in a “fields” prop among others to dynamically render a form with all the necessary functionality you’d expect.",
-        },
-        {
-          title: "Form",
-          id: "form",
-          link: "/docs/components/forms/form",
-          previewImage: "",
-          description:
-            "This Form component takes in a “fields” prop among others to dynamically render a form with all the necessary functionality you’d expect.",
-        },
-        {
-          title: "Form",
-          id: "form",
-          link: "/docs/components/forms/form",
-          previewImage: "",
-          description:
-            "This Form component takes in a “fields” prop among others to dynamically render a form with all the necessary functionality you’d expect.",
-        },
-        {
-          title: "Form",
-          id: "form",
-          link: "/docs/components/forms/form",
-          previewImage: "",
-          description:
-            "This Form component takes in a “fields” prop among others to dynamically render a form with all the necessary functionality you’d expect.",
-        },
-      ],
-    },
-    {
-      title: "Buttons",
-      id: 2,
-      children: [
-        {
-          title: "Button",
-          id: "button",
-          link: "/docs/components/buttons/button",
-          previewImage: "",
-          description:
-            "This Button component takes in a “children” prop among others to dynamically render a button with all the necessary functionality you’d expect.",
-        },
-        {
-          title: "Button",
-          id: "button",
-          link: "/docs/components/buttons/button",
-          previewImage: "",
-          description:
-            "This Button component takes in a “children” prop among others to dynamically render a button with all the necessary functionality you’d expect.",
-        },
-      ],
-    },
-  ];
-
   return (
     <div className="components" css={style}>
       <div className="components__menu">
         <h2 className="components__menu-title">Menu</h2>
-        <MenuList items={sections} />
+        <MenuList items={components} />
       </div>
       <div className="components__sections">
-        {sections.map((section, idx) => {
+        {components.map((section, idx) => {
           return (
             <div
               className="components__section"
@@ -170,6 +109,7 @@ function Components() {
               <h2 className="components__section-title">{section.title}</h2>
               <div className="components__section-cards">
                 {section.children.map((card, idx) => {
+                  console.log("Id: ", card.id);
                   return (
                     <div
                       className="components__card-container"
