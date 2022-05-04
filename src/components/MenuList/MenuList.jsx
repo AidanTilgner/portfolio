@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+
 /** @jsxImportSource @emotion/react */
 import { css } from "@emotion/react";
 import { Link } from "react-router-dom";
@@ -15,12 +16,14 @@ function MenuList({ items }) {
 
       @media (min-width: 768px) {
         display: inline-block;
-        border: 1px solid rgba(0, 0, 0, 0.1);
-        border-left: none;
+        position: fixed;
+        top: 100px;
+        left: 0;
         width: 25%;
         height: 100%;
         margin: 0;
         padding: 36px 30px;
+        box-shadow: inset 0.2px 0.2px 10px 0px rgba(0, 0, 0, 0.25);
       }
 
       &__title {
@@ -63,6 +66,10 @@ function MenuList({ items }) {
   `;
 
   const [menuList, setMenuList] = useState(items);
+
+  useEffect(() => {
+    setMenuList(items);
+  }, [items]);
 
   return (
     <div css={style}>

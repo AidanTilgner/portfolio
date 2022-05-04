@@ -10,7 +10,17 @@ import "./Components.scss";
 function Components() {
   const style = css`
     .components {
+      @media (min-width: 768px) {
+        display: flex;
+        flex-direction: row;
+        box-sizing: border-box;
+      }
+
       &__menu {
+        @media (min-width: 768px) {
+          width: 25%;
+        }
+
         &-title {
           font-family: "Roboto", sans-serif;
           font-size: 32px;
@@ -31,13 +41,46 @@ function Components() {
         align-items: left;
         margin-top: 48px;
         padding: 24px;
+
+        @media (min-width: 768px) {
+          width: 75%;
+          margin: 0;
+          margin-left: 25%;
+        }
       }
 
       &__section {
+        border-bottom: 1px solid #e6e6e6;
+        margin-bottom: 24px;
+
         &-title {
           font-family: "Roboto", sans-serif;
           font-size: 36px;
           font-weight: 300;
+          margin: 14px 0;
+        }
+
+        &-cards {
+          @media (min-width: 768px) {
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+            align-items: center;
+            flex-wrap: wrap;
+          }
+        }
+      }
+
+      &__card-container {
+        margin-top: 36px;
+
+        @media (min-width: 768px) {
+          width: 45%;
+          margin: 18px 24px 14px 0;
+        }
+
+        @media (min-width: 1024px) {
+          width: 30%;
         }
       }
     }
@@ -56,6 +99,52 @@ function Components() {
           description:
             "This Dynamic Form component takes in a “fields” prop among others to dynamically render a form with all the necessary functionality you’d expect.",
         },
+        {
+          title: "Form",
+          id: "form",
+          link: "/docs/components/forms/form",
+          previewImage: "",
+          description:
+            "This Form component takes in a “fields” prop among others to dynamically render a form with all the necessary functionality you’d expect.",
+        },
+        {
+          title: "Form",
+          id: "form",
+          link: "/docs/components/forms/form",
+          previewImage: "",
+          description:
+            "This Form component takes in a “fields” prop among others to dynamically render a form with all the necessary functionality you’d expect.",
+        },
+        {
+          title: "Form",
+          id: "form",
+          link: "/docs/components/forms/form",
+          previewImage: "",
+          description:
+            "This Form component takes in a “fields” prop among others to dynamically render a form with all the necessary functionality you’d expect.",
+        },
+      ],
+    },
+    {
+      title: "Buttons",
+      id: 2,
+      children: [
+        {
+          title: "Button",
+          id: "button",
+          link: "/docs/components/buttons/button",
+          previewImage: "",
+          description:
+            "This Button component takes in a “children” prop among others to dynamically render a button with all the necessary functionality you’d expect.",
+        },
+        {
+          title: "Button",
+          id: "button",
+          link: "/docs/components/buttons/button",
+          previewImage: "",
+          description:
+            "This Button component takes in a “children” prop among others to dynamically render a button with all the necessary functionality you’d expect.",
+        },
       ],
     },
   ];
@@ -67,20 +156,28 @@ function Components() {
         <MenuList items={sections} />
       </div>
       <div className="components__sections">
-        {sections.map((section) => {
+        {sections.map((section, idx) => {
           return (
-            <div className="components__section" key={section.id}>
+            <div
+              className="components__section"
+              key={section.title + section.id + idx}
+            >
               <h2 className="components__section-title">{section.title}</h2>
               <div className="components__section-cards">
-                {section.children.map((card) => {
+                {section.children.map((card, idx) => {
                   return (
-                    <ComponentCard
-                      key={card.title}
-                      title={card.title}
-                      link={card.link}
-                      previewImage={card.previewImage}
-                      description={card.description}
-                    />
+                    <div
+                      className="components__card-container"
+                      key={card.title + card.id + idx}
+                      id={card.id}
+                    >
+                      <ComponentCard
+                        title={card.title}
+                        link={card.link}
+                        previewImage={card.previewImage}
+                        description={card.description}
+                      />
+                    </div>
                   );
                 })}
               </div>

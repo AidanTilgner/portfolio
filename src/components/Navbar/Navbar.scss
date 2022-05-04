@@ -1,41 +1,42 @@
-@use '../../styles/partials/mixins' as *;
-@use '../../styles/partials/variables' as *;
-@use '../../styles/partials/typography' as *;
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/typography" as *;
 
-.navbar{
-    @include default-padding;
-    height: 80px;
+.navbar {
+  @include default-padding;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  background-color: $sixty;
+  z-index: 2;
+  box-shadow: 0 0.2px 10px 0 rgba($color: #000000, $alpha: 0.25);
+
+  @include tablet {
+    height: 100px;
+  }
+
+  &__title {
+    margin: 0;
+    font-size: $mobile-h2;
+
+    @include tablet {
+      font-size: $h2;
+    }
+  }
+
+  &__options {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    position: sticky;
-    top: 0;
-    background-color: $sixty;
-    z-index: 2;
+  }
 
-    @include tablet{
-        height: 100px;
+  &__cta {
+    display: none;
+
+    @include desktop {
+      display: flex;
     }
-
-    &__title{
-        margin: 0;
-        font-size: $mobile-h2;
-
-        @include tablet{
-            font-size: $h2;
-        }
-    }
-
-    &__options{
-        display: flex;
-        align-items: center;
-    }
-
-    &__cta{
-        display: none;
-
-        @include desktop{
-            display: flex;
-        }
-    }
+  }
 }
