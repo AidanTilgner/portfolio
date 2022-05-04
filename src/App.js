@@ -2,6 +2,7 @@
 import Navbar from "./components/Navbar/Navbar";
 import Home from "./pages/Home/Home";
 import Components from "./pages/Components/Components";
+import Docs from "./pages/Docs/Docs";
 // add react router
 import { HashRouter as Router, Switch, Route } from "react-router-dom";
 
@@ -14,18 +15,9 @@ function App() {
       <div className="App">
         <Navbar />
         <Switch>
-          <Route
-            exact
-            path="/"
-            render={() => <Home />}
-            // component={Home}
-          />
-          <Route
-            exact
-            path="/components"
-            render={() => <Components />}
-            // component={Components}
-          />
+          <Route exact path="/" render={() => <Home />} />
+          <Route exact path="/components" render={() => <Components />} />
+          <Route path="/docs" render={() => <Docs />} />
         </Switch>
       </div>
     </Router>

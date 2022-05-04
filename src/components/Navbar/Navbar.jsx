@@ -33,7 +33,7 @@ function Navbar() {
     // checkShadowScroll(location);
   }, [location]);
 
-  let endpoint = location.pathname.replace("/", "");
+  let endpoint = location.pathname.split("/")[1];
   // captilize first letter of each word
   endpoint = endpoint.replace(/\b\w/g, (l) => l.toUpperCase());
   endpoint = endpoint.replace("/", "");

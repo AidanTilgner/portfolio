@@ -160,7 +160,12 @@ function Components() {
           return (
             <div
               className="components__section"
-              key={section.title + section.id + idx}
+              key={
+                section.title +
+                section.id +
+                idx +
+                Math.random(36).toString(36).substring(2, 15)
+              }
             >
               <h2 className="components__section-title">{section.title}</h2>
               <div className="components__section-cards">
@@ -168,7 +173,12 @@ function Components() {
                   return (
                     <div
                       className="components__card-container"
-                      key={card.title + card.id + idx}
+                      key={
+                        card.title +
+                        card.id +
+                        idx +
+                        Math.random(36).toString(36).substring(2, 15)
+                      }
                       id={card.id}
                     >
                       <ComponentCard
