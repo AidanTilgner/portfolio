@@ -37,16 +37,18 @@ function Docs() {
 
     .docs {
       &__body {
-        display: flex;
-        justify-content: space-between;
+        @media (min-width: 768px) {
+          display: flex;
+          justify-content: space-between;
+        }
       }
 
       &__preview {
         width: 100%;
+        aspect-ratio: 16/9;
         // height: 200px;
         box-shadow: 0.2px 0.2px 6px rgba(0, 0, 0, 0.25);
         margin: 24px 0;
-        aspect-ratio: 16/9;
         display: flex;
         justify-content: center;
         align-items: center;
